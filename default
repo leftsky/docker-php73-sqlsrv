@@ -41,26 +41,26 @@ server {
 	server_name _;
 
 	location /api {  
-			try_files $uri $uri/ /index.php$is_args$query_string;  
+		try_files $uri $uri/ /index.php$is_args$query_string;  
 	} 
 
 	location /telescope {  
-			try_files $uri $uri/ /index.php$is_args$query_string;  
+		try_files $uri $uri/ /index.php$is_args$query_string;  
 	}
 
 	location / {
-			if (!-f $request_filename){
-					set $rule_1 1$rule_1;
-			}
-			if (!-d $request_filename){
-					set $rule_1 2$rule_1;
-			}
-			if ($request_filename !~ "-l"){
-					set $rule_1 3$rule_1;
-			}
-			if ($rule_1 = "321"){
-					rewrite /. /index.html last;
-			}
+		if (!-f $request_filename){
+				set $rule_1 1$rule_1;
+		}
+		if (!-d $request_filename){
+				set $rule_1 2$rule_1;
+		}
+		if ($request_filename !~ "-l"){
+				set $rule_1 3$rule_1;
+		}
+		if ($rule_1 = "321"){
+				rewrite /. /index.html last;
+		}
 	}
 
 	location ~ /\. {
