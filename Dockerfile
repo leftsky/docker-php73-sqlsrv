@@ -40,6 +40,9 @@ RUN pecl install pdo_sqlsrv
 RUN echo "extension=pdo.so" >>/etc/php/7.3/fpm/php.ini
 RUN echo "extension=sqlsrv.so" >>/etc/php/7.3/fpm/php.ini
 RUN echo "extension=pdo_sqlsrv.so" >>/etc/php/7.3/fpm/php.ini
+RUN echo "extension=pdo.so" >>/etc/php/7.3/cli/php.ini
+RUN echo "extension=sqlsrv.so" >>/etc/php/7.3/cli/php.ini
+RUN echo "extension=pdo_sqlsrv.so" >>/etc/php/7.3/cli/php.ini
 
 # load driver sqlsrv
 # RUN find / -name sqlsrv.so
