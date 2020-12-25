@@ -36,6 +36,7 @@ RUN update-alternatives --set php-config /usr/bin/php-config7.3
 # install driver sqlsrv
 RUN pear update-channels
 RUN pecl update-channels
+RUN pear upgrade
 RUN pecl upgrade
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
