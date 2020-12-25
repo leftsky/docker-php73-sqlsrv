@@ -13,7 +13,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 # RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/nginx
 RUN apt-get update
 # install curl and git
-RUN apt-get install -y curl git nginx supervisor
+RUN apt-get install -y curl git nginx supervisor vim
 
 # install php
 RUN apt-get -y install php7.3 php7.3-fpm mcrypt php-mbstring php-pear php7.3-dev php7.3-xml php7.3-json php7.3-redis \
@@ -37,9 +37,10 @@ RUN update-alternatives --set php-config /usr/bin/php-config7.3
 RUN pecl upgrade
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
-RUN echo "extension=pdo.so" >>/etc/php/7.3/fpm/php.ini
-RUN echo "extension=sqlsrv.so" >>/etc/php/7.3/fpm/php.ini
-RUN echo "extension=pdo_sqlsrv.so" >>/etc/php/7.3/fpm/php.ini
+# RUN echo "extension=pdo.so" >>/etc/php/7.3/fpm/php.ini
+# RUN echo "extension=sqlsrv.so" >>/etc/php/7.3/fpm/php.ini
+# RUN echo "extension=pdo_sqlsrv.so" >>/etc/php/7.3/fpm/php.ini
+COPY php.ini /etc/php/7.3/fpm/php.ini
 RUN echo "extension=pdo.so" >>/etc/php/7.3/cli/php.ini
 RUN echo "extension=sqlsrv.so" >>/etc/php/7.3/cli/php.ini
 RUN echo "extension=pdo_sqlsrv.so" >>/etc/php/7.3/cli/php.ini
