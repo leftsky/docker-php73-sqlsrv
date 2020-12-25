@@ -34,6 +34,7 @@ RUN update-alternatives --set php /usr/bin/php7.3
 RUN update-alternatives --set phpize /usr/bin/phpize7.3
 RUN update-alternatives --set php-config /usr/bin/php-config7.3
 # install driver sqlsrv
+RUN pear update-channels
 RUN pecl upgrade
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
