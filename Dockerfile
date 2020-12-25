@@ -40,7 +40,6 @@ RUN pecl install pdo_sqlsrv
 # RUN echo "extension=pdo.so" >>/etc/php/7.3/fpm/php.ini
 # RUN echo "extension=sqlsrv.so" >>/etc/php/7.3/fpm/php.ini
 # RUN echo "extension=pdo_sqlsrv.so" >>/etc/php/7.3/fpm/php.ini
-COPY php.ini /etc/php/7.3/fpm/php.ini
 # RUN echo "extension=pdo.so" >>/etc/php/7.3/cli/php.ini
 # RUN echo "extension=sqlsrv.so" >>/etc/php/7.3/cli/php.ini
 # RUN echo "extension=pdo_sqlsrv.so" >>/etc/php/7.3/cli/php.ini
@@ -75,6 +74,7 @@ RUN apt-get install -y locales && echo "en_US.UTF-8 UTF-8" >/etc/locale.gen && l
 
 COPY default /etc/nginx/sites-available/default
 RUN chmod 755 /start.sh
+COPY php.ini /etc/php/7.3/fpm/php.ini
 
 EXPOSE 80
 
